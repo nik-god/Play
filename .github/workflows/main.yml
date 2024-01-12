@@ -7,14 +7,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: Build & Push Image
       run: |
         echo "Hi there, I am building the image"
-        docker image build -t nikitamathur/MyApp:V1 .
+        docker build -t nikitamathur/MyApp:V1 .
 
