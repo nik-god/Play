@@ -13,8 +13,17 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Build & Push Image
+    - name: Build
       run: |
         echo "Hi there, I am building the image"
         docker build -t nikitamathur/myapp:V1 .
+    
+    - name: Publish to docker hub
+      uses: docker/build-push-action@v2
+      with:
+        username: ${{ secrets.Docker_Username }}
+        password: ${{ secrets.DOCKER_PASSWORD}}
+        repository: nikitamathur/myapp
+        tags: latest, ${{github.run_number}}
 
+      
