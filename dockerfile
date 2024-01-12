@@ -27,8 +27,7 @@ WORKDIR /project/wepapp
 COPY . /project/wepapp/
 RUN make libs && \
     make test  && \
-    make clean all && \
-    ls -lrt
+    make clean all
 
 
 
