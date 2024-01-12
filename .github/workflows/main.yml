@@ -16,5 +16,5 @@ jobs:
     - name: Build & Push Image
       run: |
         echo "Hi there, I am building the image"
-        docker build -t nikitamathur/MyApp:V1 .
+        docker build -t nikitamathur/myapp:V1 .
 
