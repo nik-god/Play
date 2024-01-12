@@ -1,20 +1,23 @@
 name: My Application
 
 on:
- push:
-  branches: [ master ]
- pull_request:
-  branches: [ master ]
-
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
- build:
+  build:
+    runs-on: ubuntu-latest
 
-   run-on: ubuntu:latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v1
 
-   steps:
-   - uses: actions/checkout@v1
-   - name: Build & Push Image
-   run:
-    echo "Hi there i am building image"
-    docker image build -t nikitamathur/MyApp:V1
+    - name: Build & Push Image
+      run: |
+        echo "Hi there, I am building the image"
+        docker image build -t nikitamathur/MyApp:V1 .
+
